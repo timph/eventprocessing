@@ -1,0 +1,13 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Mac files
+.DS_Store
+
+# Editor configs
+.vscode/*
+!.vscode/extensions.json
+.history
+.idea
+
+# dependencies
+/node_modules
+
