@@ -18,8 +18,6 @@ function isValidIPV4(ip) {
   }
   return true;
 }
-// let samples = ['0.0.0.0', '255.255.255.255', '127.0.0.1', 'a','12.a.b1.c2', '12.02.01.01','12.13', '312.01.01.12','1002.12.12.501','127.12.12.12'];
-// console.log('final result', samples.filter(isIPV4));
 
 function isValidTimestamp(ts) {
   return (new Date(Number(ts))).getTime() > 0;

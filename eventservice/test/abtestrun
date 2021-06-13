@@ -1,0 +1,9 @@
+# ab run command
+# -p POST with input file
+# -T sets the Content-Type
+# -c is concurrent clients
+# -n is the number of requests to run in the test
+# -H adds an Auth header (could be Basic or Token)
+# Url of host:port/path
+
+ab -n 100 -c 100 -p event.json -T 'application/json' http://localhost:4000/

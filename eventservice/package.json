@@ -4,7 +4,10 @@
   "description": "Event Service",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "redis:client": "redis-cli",
+    "redis:server": "redis-server",
+    "start": "nodemon index.js",
+    "test": "mocha"
   },
   "author": "Tim Pham",
   "license": "ISC",
@@ -12,7 +15,12 @@
     "body-parser": "^1.19.0",
     "errorhandler": "^1.5.1",
     "express": "^4.17.1",
-    "method-override": "^3.0.0",
+    "ioredis": "^4.27.6",
+    "method-override": "^3.0.0"
+  },
+  "devDependencies": {
+    "expect": "^27.0.2",
+    "mocha": "^9.0.0",
     "nodemon": "^2.0.7"
   }
 }
