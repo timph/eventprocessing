@@ -6,7 +6,8 @@
   "scripts": {
     "redis:client": "redis-cli",
     "redis:server": "redis-server",
-    "start": "nodemon index.js",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
     "test": "mocha"
   },
   "author": "Tim Pham",

@@ -4,8 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "dotenv node index.js",
+    "setup": "dotenv node setupDB.js",
+    "dev": "dotenv nodemon index.js"
   },
   "author": "Tim Pham",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "dotenv-cli": "^4.0.0",
+    "ioredis": "^4.27.6",
+    "pg": "^8.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
 }

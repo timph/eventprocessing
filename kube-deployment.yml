@@ -103,115 +103,76 @@ spec:
     requests:
       storage: 1Gi
 
-# result
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: result
-  labels:
-    app: result
-spec:
-  type: LoadBalancer
-  ports:
-  - port: 5001
-    targetPort: 80
-    name: result-service
-  selector:
-    app: result
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: result
-  labels:
-    app: result
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: result
-  template:
-    metadata:
-      labels:
-        app: result
-    spec:
-      containers:
-      - name: result
-        image: dockersamples/examplevotingapp_result:before
-        ports:
-        - containerPort: 80
-          name: result
 
-# vote
+# eventservice
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: vote
+  name: eventservice
   labels:
-    apps: vote
+    apps: eventservice
 spec:
   type: LoadBalancer
   ports:
-    - port: 5000
+    - port: 4000
       targetPort: 80
-      name: vote-service
+      name: event-service
   selector:
-    app: vote
+    app: eventservice
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: vote
+  name: eventservice
   labels:
-    app: vote
+    app: eventservice
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: vote
+      app: eventservice
   template:
     metadata:
       labels:
-        app: vote
+        app: eventservice
     spec:
       containers:
-      - name: vote
-        image: dockersamples/examplevotingapp_vote:before
+      - name: eventservice
+        image: timp/eventservice
         ports:
         - containerPort: 80
-          name: vote
+          name: eventservice
 
-# worker
+# queueworker
 --- 
 apiVersion: v1
 kind: Service
 metadata: 
   labels: 
-    apps: worker
-  name: worker
+    apps: queueworker
+  name: queueworker
 spec: 
   clusterIP: None
   selector: 
-    app: worker
+    app: queueworker
 --- 
 apiVersion: apps/v1
 kind: Deployment
 metadata: 
   labels: 
-    app: worker
-  name: worker
+    app: queueworker
+  name: queueworker
 spec: 
   replicas: 1
   selector:
     matchLabels:
-      app: worker
+      app: queueworker
   template: 
     metadata: 
       labels: 
-        app: worker
+        app: queueworker
     spec: 
       containers: 
-      - image: dockersamples/examplevotingapp_worker
-        name: worker
+      - image: timp/queueworker
+        name: queueworker

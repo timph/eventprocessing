@@ -11,3 +11,6 @@
 # dependencies
 **/node_modules
 
+# generated
+dump.rdb
+
